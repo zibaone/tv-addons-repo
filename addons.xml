@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addons>
+<addon id="repository.tv-addons" name="TV Addons Repository" version="1.0.0" provider-name="tv-addons">
+  <extension point="xbmc.addon.repository">
+    <dir>
+      <info compressed="false">https://gitlab.com/zibaone/tv-addons-repo/-/raw/main/addons.xml</info>
+      <checksum>https://gitlab.com/zibaone/tv-addons-repo/-/raw/main/addons.xml.md5</checksum>
+      <datadir zip="true">https://gitlab.com/zibaone/tv-addons-repo/-/raw/main/</datadir>
+    </dir>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>TV Addons repository (Orange, Xtream, Pluto, Samsung, Rakuten)</summary>
+    <description>Install and auto-update TV Addons (Orange TV, Xtream, Pluto TV, Rakuten TV, Samsung TV Plus, TV Common).</description>
+    <platform>all</platform>
+    <license>MIT</license>
+    <assets>
+      <icon>icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+<addon id="script.module.tv_common" name="TV Common" version="0.4.4" provider-name="tv-addons">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="script.module.requests" version="2.25.0"/>
+    <import addon="script.module.inputstreamhelper" version="0.6.1"/>
+  </requires>
+  <extension point="xbmc.python.module" library="lib"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Shared abstraction for TV streaming Kodi addons (IPTV Manager integration, VOD, library).</summary>
+    <description lang="en">Provides the provider interface, stream/catchup managers, IPTV Manager socket integration and Kodi utilities shared by plugin.video.orange.tv and plugin.video.xtream.</description>
+    <summary lang="fr">Abstraction commune pour les addons Kodi de TV (intégration IPTV Manager, VOD, bibliothèque).</summary>
+    <description lang="fr">Fournit l'interface provider, les managers stream/catchup, l'intégration socket IPTV Manager et les utilitaires Kodi partagés par plugin.video.orange.tv et plugin.video.xtream.</description>
+    <platform>all</platform>
+    <license>MIT</license>
+    <assets>
+      <icon>resources/media/tv_common.png</icon>
+    </assets>
+  </extension>
+</addon><addon id="plugin.video.orange.tv" name="Orange TV France" version="0.2.6" provider-name="tv-addons">
+  <requires>
+    <import addon="xbmc.python" version="3.0.1"/>
+    <import addon="script.module.routing" version="0.2.3"/>
+    <import addon="script.module.tv_common" version="0.4.2"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="resources/addon.py">
+    <provides>video</provides>
+    <medialibraryscanpath content="movies">/library/movies</medialibraryscanpath>
+    <medialibraryscanpath content="tvshows">/library/tvshows</medialibraryscanpath>
+  </extension>
+  <extension point="xbmc.service" library="resources/service.py"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Watch TV channels provided by your Orange subscription from Kodi!</summary>
+    <description lang="en">This addon brings to Kodi all the TV channels included in your Orange subscription. Easy install via IPTV Manager.</description>
+
+    <summary lang="fr">Regardez les chaînes de télé incluses dans votre abonnement Orange depuis Kodi !</summary>
+    <description lang="fr">Cet addon intègre à Kodi toutes les chaînes de télé incluses dans votre abonnement Orange. L'installation se fait facilement via IPTV Manager.</description>
+
+    <platform>all</platform>
+    <license>MIT</license>
+    <assets>
+      <icon>resources/media/icon.png</icon>
+      <fanart>resources/media/fanart.jpg</fanart>
+      <screenshot>resources/media/screenshot_1.jpg</screenshot>
+      <screenshot>resources/media/screenshot_2.jpg</screenshot>
+      <screenshot>resources/media/screenshot_3.jpg</screenshot>
+    </assets>
+  </extension>
+</addon>
+<addon id="plugin.video.xtream" name="Xtream TV" version="0.2.7" provider-name="tv-addons">
+  <requires>
+    <import addon="xbmc.python" version="3.0.1"/>
+    <import addon="script.module.routing" version="0.2.3"/>
+    <import addon="script.module.tv_common" version="0.4.4"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="resources/addon.py">
+    <provides>video</provides>
+    <medialibraryscanpath content="movies">/library/movies</medialibraryscanpath>
+    <medialibraryscanpath content="tvshows">/library/tvshows</medialibraryscanpath>
+  </extension>
+  <extension point="xbmc.service" library="resources/service.py"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Watch Xtream-compatible IPTV providers from Kodi!</summary>
+    <description lang="en">This addon brings to Kodi the live channels, VOD and series of any Xtream-compatible IPTV provider, with IPTV Manager integration.</description>
+    <summary lang="fr">Regardez vos fournisseurs IPTV compatibles Xtream depuis Kodi !</summary>
+    <description lang="fr">Cet addon intègre à Kodi les chaînes en direct, la VOD et les séries de tout fournisseur IPTV compatible Xtream, avec intégration IPTV Manager.</description>
+    <platform>all</platform>
+    <license>MIT</license>
+    <assets>
+      <icon>resources/media/icon.png</icon>
+      <fanart>resources/media/fanart.jpg</fanart>
+    </assets>
+  </extension>
+</addon><addon id="plugin.video.pluto.tv" name="Pluto TV" version="0.1.3" provider-name="tv-addons">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="script.module.routing" version="0.2.3"/>
+    <import addon="script.module.tv_common" version="0.4.2"/>
+    <import addon="script.module.requests" version="2.25.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="resources/addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.service" library="resources/service.py"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Watch Pluto TV FAST channels from Kodi!</summary>
+    <description lang="en">This addon brings to Kodi all the free Pluto TV FAST channels with IPTV Manager integration. No account required.</description>
+    <summary lang="fr">Regardez les chaînes Pluto TV FAST depuis Kodi !</summary>
+    <description lang="fr">Cet addon intègre à Kodi toutes les chaînes gratuites Pluto TV avec intégration IPTV Manager. Aucun compte requis.</description>
+    <platform>all</platform>
+    <license>MIT</license>
+    <assets>
+      <icon>resources/media/icon.png</icon>
+      <fanart>resources/media/fanart.jpg</fanart>
+    </assets>
+  </extension>
+</addon>
+<addon id="plugin.video.rakuten.tv" name="Rakuten TV Free" version="0.1.3" provider-name="tv-addons">
+  <requires>
+    <import addon="xbmc.python" version="3.0.1"/>
+    <import addon="script.module.routing" version="0.2.3"/>
+    <import addon="script.module.tv_common" version="0.4.2"/>
+    <import addon="script.module.requests" version="2.25.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="resources/addon.py">
+    <provides>video</provides>
+    <medialibraryscanpath content="movies">/library/movies</medialibraryscanpath>
+    <medialibraryscanpath content="tvshows">/library/tvshows</medialibraryscanpath>
+  </extension>
+  <extension point="xbmc.service" library="resources/service.py"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Watch Rakuten TV Free FAST channels from Kodi!</summary>
+    <description lang="en">This addon brings to Kodi all the free Rakuten TV FAST channels (FR) with IPTV Manager integration and AVOD films. No account required — HLS clear.</description>
+    <summary lang="fr">Regardez les chaînes gratuites Rakuten TV Free depuis Kodi !</summary>
+    <description lang="fr">Cet addon intègre à Kodi toutes les chaînes gratuites Rakuten TV Free (FR) avec intégration IPTV Manager et films AVOD. Aucun compte requis — HLS clair.</description>
+    <platform>all</platform>
+    <license>MIT</license>
+    <assets>
+      <icon>resources/media/icon.png</icon>
+      <fanart>resources/media/fanart.jpg</fanart>
+    </assets>
+  </extension>
+</addon>
+<addon id="plugin.video.samsung.tvplus" name="Samsung TV Plus" version="0.1.3" provider-name="tv-addons">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="script.module.routing" version="0.2.3"/>
+    <import addon="script.module.tv_common" version="0.4.2"/>
+    <import addon="script.module.requests" version="2.25.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="resources/addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.service" library="resources/service.py"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Watch Samsung TV Plus FAST channels from Kodi!</summary>
+    <description lang="en">Free FAST channels from Samsung TV Plus (France) — live HLS, EPG and category browsing via IPTV Manager.</description>
+    <summary lang="fr">Regardez Samsung TV Plus depuis Kodi !</summary>
+    <description lang="fr">Chaînes FAST gratuites Samsung TV Plus (France) — HLS clair, EPG et navigation par catégories via IPTV Manager.</description>
+    <platform>all</platform>
+    <license>MIT</license>
+    <assets>
+      <icon>resources/media/icon.png</icon>
+      <fanart>resources/media/fanart.jpg</fanart>
+    </assets>
+  </extension>
+</addon>
+</addons>
