@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="repository.tv-addons" name="TV Addons Repository" version="1.0.6" provider-name="tv-addons">
+<addon id="repository.tv-addons" name="TV Addons Repository" version="1.0.7" provider-name="tv-addons">
   <extension point="xbmc.addon.repository">
     <dir>
       <info compressed="false">https://raw.githubusercontent.com/zibaone/tv-addons-repo/main/addons.xml</info>
@@ -8,8 +8,8 @@
     </dir>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <summary>TV Addons repository (Orange, Xtream, Pluto, Samsung, Rakuten)</summary>
-    <description>Install and auto-update TV Addons (Orange TV, Xtream, Pluto TV, Rakuten TV, Samsung TV Plus, TV Common).</description>
+    <summary>TV Addons repository (Orange, Xtream, Pluto, Samsung, Rakuten, IPTV Manager)</summary>
+    <description>Install and auto-update TV Addons (Orange TV, Xtream, Pluto TV, Rakuten TV, Samsung TV Plus, IPTV Manager, TV Common).</description>
     <platform>all</platform>
     <license>MIT</license>
     <assets>
